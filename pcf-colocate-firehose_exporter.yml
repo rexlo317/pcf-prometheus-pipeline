@@ -18,7 +18,7 @@
           subscription_id: "((metrics_environment))"
           max_retry_count: 300
         logging:
-          url: wss://doppler.((system_domain)):((traffic_controller_external_port))|
+          url: wss://doppler.((system_domain)):((traffic_controller_external_port))
           use_legacy_firehose: true
         uaa:
           url: https://uaa.((system_domain))
