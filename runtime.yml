@@ -11,3 +11,7 @@ addons:
   jobs:
   - name: node_exporter
     release: node-exporter
+    properties:
+      node_exporter:
+        web:
+          port: 9292
