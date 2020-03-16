@@ -5,7 +5,7 @@ root_dir=$(cd "$(dirname "$0")/.." && pwd)
 
 source ${root_dir}/tasks/common.sh
 
-login_to_cf_uaa
+login_to_cf_uaa ${pcf_opsman_admin_uaa_client} ${pcf_opsman_admin_uaa_secret} ${pcf_opsman_admin_uaa_system_domain}
 
 echo "Creating Prometheus UAA Client..."
 uaac client add firehose_exporter \
