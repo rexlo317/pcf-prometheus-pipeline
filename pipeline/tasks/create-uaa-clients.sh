@@ -1,9 +1,15 @@
 #!/bin/bash
 set -e
 
+echo "set root_dir..."
+
 root_dir=$(cd "$(dirname "$0")/.." && pwd)
 
+echo "set source common.sh..."
+
 source ${root_dir}/tasks/common.sh
+
+echo "login_to_cf_uaa..."
 
 login_to_cf_uaa ${pcf_opsman_admin_uaa_client} ${pcf_opsman_admin_uaa_secret} ${pcf_opsman_admin_uaa_system_domain}
 
