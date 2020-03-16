@@ -21,10 +21,19 @@ function login_to_cf_uaa() {
 
 	uaa_client=${1}
 	uaa_secret=${2}
-
 	system_domain=${3}
 
+	echo "uaac target"
+	echo ${uaa_client}
+	echo ${uaa_secret}
+	echo ${system_domain}
+	
 	uaac target https://uaa.${system_domain} --skip-ssl-validation
+	
+	echo "uaac token"
+	echo ${uaa_client}
+	echo ${uaa_secret}
+	echo ${system_domain}
 	uaac token client get ${uaa_client} -s ${uaa_secret}
 }
 
