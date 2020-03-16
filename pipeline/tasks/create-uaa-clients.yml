@@ -16,9 +16,6 @@ params:
   uaa_bosh_exporter_client_secret:
   uaa_clients_firehose_exporter_secret:
   uaa_clients_cf_exporter_secret:
-  pcf_opsman_admin_uaa_client: 
-  pcf_opsman_admin_uaa_secret: 
-  pcf_opsman_admin_uaa_system_domain: 
 
 run:
   path: pcf-prometheus-pipeline/pipeline/tasks/create-uaa-clients.sh

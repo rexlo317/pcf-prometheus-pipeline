@@ -11,7 +11,7 @@ source ${root_dir}/tasks/common.sh
 
 echo "login_to_cf_uaa..."
 
-login_to_cf_uaa ${pcf_opsman_admin_uaa_client} ${pcf_opsman_admin_uaa_secret} ${pcf_opsman_admin_uaa_system_domain}
+login_to_cf_uaa 
 
 echo "Creating Prometheus UAA Client..."
 uaac client add firehose_exporter \
