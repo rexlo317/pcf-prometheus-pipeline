@@ -23,28 +23,17 @@ function login_to_cf_uaa() {
 	uaa_secret=${2}
 	system_domain=${3}
 
-	echo "uaac target"
-	echo ${uaa_client}
-	echo ${uaa_secret}
-	echo ${system_domain}
-	
 	uaac target https://uaa.${system_domain} --skip-ssl-validation
-	
-	echo "uaac token"
-	echo ${uaa_client}
-	echo ${uaa_secret}
-	echo ${system_domain}
 	uaac token client get ${uaa_client} -s ${uaa_secret}
 }
 
 function login_to_bosh_uaa() {
 	echo "Getting BOSH director IP..."
-	director_id=$($CURL --path=/api/v0/deployed/products | jq -r '.[] | select (.type == "p-bosh") | .guid')
-	director_ip=$($CURL --path=/api/v0/deployed/products/$director_id/static_ips | jq -r .[0].ips[0])
+	director_ip=${1}
 
 	echo "Getting BOSH UAA creds..."
-	uaa_login_password=$($CURL --path=/api/v0/deployed/products/$director_id/credentials/.director.uaa_login_client_credentials | jq -r .credential.value.password)
-	uaa_admin_password=$($CURL --path=/api/v0/deployed/director/credentials/uaa_admin_user_credentials | jq -r .credential.value.password)
+	uaa_login_password=${2}
+	uaa_admin_password=${3}
 
 	echo "Logging into BOSH UAA..."
 	uaac target https://$director_ip:8443 --skip-ssl-validation

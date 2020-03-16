@@ -27,7 +27,7 @@ uaac client add cf_exporter \
   --authorized_grant_types client_credentials,refresh_token \
   --authorities cloud_controller.admin_read_only || true #ignore errors
 
-login_to_bosh_uaa
+login_to_bosh_uaa ${pcf_opsman_bosh_director_ip} ${pcf_opsman_bosh_director_password} ${pcf_opsman_uaa_admin_password}
 
 echo "Creating Prometheus BOSH UAA Client ..."
 uaac client add bosh_exporter \
